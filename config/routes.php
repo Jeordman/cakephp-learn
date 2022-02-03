@@ -31,6 +31,11 @@ return static function (RouteBuilder $routes) {
     $routes->connect('/hello', ['controller' => 'Posts', 'action' => 'hello']);
   });
 
+  $routes->prefix('admin', function (RouteBuilder $routes) {
+    $routes->connect('/', ['controller' => 'Dashboard', 'action' => 'index']);
+    $routes->connect('/create', ['controller' => 'Posts', 'action' => 'create']);
+  });
+
   $routes->scope('/', function (RouteBuilder $builder) {
     $builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
     $builder->connect('/pages/*', 'Pages::display');
