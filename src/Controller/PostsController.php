@@ -17,9 +17,19 @@ class PostsController extends AppController
   {
     die('<h1>PostsController::index()</h1>');
   }
-
   public function view($id)
   {
     die('this is post id: ' . $id);
+  }
+
+  public function create()
+  {
+    die('<h1>Creating post</h1>');
+  }
+
+
+  public function edit($id)
+  {
+    die('this is edit post id: ' . $id);
   }
 }

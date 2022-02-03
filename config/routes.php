@@ -18,6 +18,13 @@ return static function (RouteBuilder $routes) {
      * pass the id to the view method
      */
     $routes->connect('/:id', ['controller' => 'Posts', 'action' => 'view'], ['id' => '\d+', 'pass' => ['id']]);
+
+    // create a route listening to /posts/create
+    // this will be handled by the PostsController::create() method
+    $routes->connect('/create', ['controller' => 'Posts', 'action' => 'create']);
+
+    // route for editing a post
+    $routes->connect('/:id/edit', ['controller' => 'Posts', 'action' => 'edit'], ['id' => '\d+', 'pass' => ['id']]);
   });
 
   $routes->scope('/', function (RouteBuilder $builder) {
