@@ -9,9 +9,12 @@ class PostsController extends AppController
 {
   public function index()
   {
-    // $this->set('person', 'Jeordin Callister');
-    $people = ['Jeordin Callister', 'John Doe', 'Jane Doe'];
-    $this->set('people', $people);
+    $posts = [
+      ['id' => 1, 'title' => 'First Post', 'body' => 'This is the first post'],
+      ['id' => 2, 'title' => 'Second Post', 'body' => 'This is the second post'],
+      ['id' => 3, 'title' => 'Third Post', 'body' => 'This is the third post'],
+    ];
+    $this->set('posts', $posts);
   }
 
   public function view($id)
