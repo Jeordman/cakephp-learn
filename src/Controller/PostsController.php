@@ -7,14 +7,16 @@ use App\Controller\AppController;
 // always make controller plural
 class PostsController extends AppController
 {
-  public function index()
-  {
-    $posts = [
+
+    private $posts = [
       ['id' => 1, 'title' => 'First Post', 'body' => 'This is the first post'],
       ['id' => 2, 'title' => 'Second Post', 'body' => 'This is the second post'],
       ['id' => 3, 'title' => 'Third Post', 'body' => 'This is the third post'],
     ];
-    $this->set('posts', $posts);
+
+  public function index()
+  {
+    $this->set('posts', $this->posts);
   }
 
   public function view($id)
@@ -25,6 +27,7 @@ class PostsController extends AppController
       'title' => 'First Post',
       'body' => 'This is the body of post ',
     ];
+    $this->set('posts', $this->posts);
     $this->set('post', $post);
   }
 

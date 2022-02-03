@@ -74,7 +74,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
       <div class='row'>
         <div class='col-md-4 col-lg-3 col-sm-4'>
-          <h3>Sidebar</h3>
+          <?= $this->element('latest') ?>
         </div>
         <div class='col-md-8 col-lg-9 col-sm-8'>
           <?= $this->Flash->render() ?>
