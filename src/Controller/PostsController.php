@@ -7,12 +7,11 @@ use App\Controller\AppController;
 // always make controller plural
 class PostsController extends AppController
 {
-  public function initialize(): void
-  {
-  }
-
   public function index()
   {
+    // $this->set('person', 'Jeordin Callister');
+    $people = ['Jeordin Callister', 'John Doe', 'Jane Doe'];
+    $this->set('people', $people);
   }
 
   public function view($id)

@@ -3,6 +3,10 @@
     <h3>Sidebar</h3>
   </div>
   <div class='columns large-9 medium-8'>
-    <h1>Main content</h1>
+    <ul>
+      <?php foreach($people as $person) { ?>
+        <li><?= $person ?>
+      <?php } ?>
+    </ul>
   </div>
 </div>
