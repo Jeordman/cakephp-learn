@@ -25,6 +25,10 @@ return static function (RouteBuilder $routes) {
 
     // route for editing a post
     $routes->connect('/:id/edit', ['controller' => 'Posts', 'action' => 'edit'], ['id' => '\d+', 'pass' => ['id']]);
+
+    // route for hello
+    // get name from query params
+    $routes->connect('/hello', ['controller' => 'Posts', 'action' => 'hello']);
   });
 
   $routes->scope('/', function (RouteBuilder $builder) {
