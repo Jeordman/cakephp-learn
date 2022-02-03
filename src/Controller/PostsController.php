@@ -19,7 +19,13 @@ class PostsController extends AppController
 
   public function view($id)
   {
-    die('this is post id: ' . $id);
+    // example post
+    $post = [
+      'id' => $id,
+      'title' => 'First Post',
+      'body' => 'This is the body of post ',
+    ];
+    $this->set('post', $post);
   }
 
   public function create()

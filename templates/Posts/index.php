@@ -4,8 +4,9 @@
   </div>
   <div class='columns large-9 medium-8'>
     <?php foreach ($posts as $post) { ?>
-      <h4><?= $post['title'] ?></h4>
+      <h4><?= $this->Html->link($post['title'],'/posts/'.$post['id']) ?></h4>
       <p><?= $post['body'] ?></p>
+      <hr>
     <?php } ?>
   </div>
 </div>
