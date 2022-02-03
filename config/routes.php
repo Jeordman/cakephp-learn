@@ -36,6 +36,7 @@ return static function (RouteBuilder $routes) {
     $routes->connect('/create', ['controller' => 'Posts', 'action' => 'create']);
   });
 
+
   $routes->scope('/', function (RouteBuilder $builder) {
     $builder->connect('/', ['controller' => 'Posts', 'action' => 'index', 'home']);
     $builder->connect('/pages/*', 'Pages::display');
