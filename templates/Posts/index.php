@@ -4,7 +4,7 @@
       <strong class="d-inline-block mb-2 text-primary">Category</strong>
       <h3 class="mb-0"><?= $post['title'] ?></h3>
       <div class="mb-1 text-muted">date</div>
-      <p class="card-text mb-auto"><?= $post['body'] ?></p>
+      <?= $this->Text->truncate($post['body'], 200, ['ellipsis' => '...', 'exact' => false]) ?>
       <?= $this->Html->link('Read More', '/posts/' . $post['id'], ['class', "stretched-link"]) ?>
     </div>
   </div>
