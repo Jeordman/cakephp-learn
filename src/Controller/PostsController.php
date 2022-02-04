@@ -10,6 +10,8 @@ class PostsController extends AppController
 
   public function initialize(): void
   {
+    parent::initialize();
+    $this->loadComponent('Flash');
     // $this->loadComponent('Blog');
     // $this->posts = $this->Blog->getPosts();
   }
@@ -17,14 +19,14 @@ class PostsController extends AppController
   public function index()
   {
     // Get from database
-    $posts = $this->Posts->find('all');
+    $posts = $this->Posts->find('all', ['order' => array('created' => 'DESC')]);
     $this->set(compact('posts'));
   }
 
   public function view($id)
   {
     $posts = $this->Posts->find('all');
-    $post = $this->Posts->get($id); 
+    $post = $this->Posts->get($id);
     $this->set(compact('posts', 'post'));
   }
 
@@ -32,6 +34,17 @@ class PostsController extends AppController
   {
     $posts = $this->Posts->find('all');
     $this->set(compact('posts'));
+
+    $post = $this->Posts->newEmptyEntity();
+    if ($this->request->is('post')) {
+      $post = $this->Posts->patchEntity($post, $this->request->getData());
+      if ($this->Posts->save($post)) {
+        $this->Flash->success(__('Your post has been saved.'));
+        return $this->redirect(['action' => 'index']);
+      }
+      $this->Flash->error(__('Unable to add your post.'));
+    }
+    $this->set('post', $post);
   }
 
 
