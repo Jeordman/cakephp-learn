@@ -8,43 +8,30 @@ use App\Controller\AppController;
 class PostsController extends AppController
 {
 
-  private $posts;
-
   public function initialize(): void
   {
-    $this->loadComponent('Blog');
-    $this->posts = $this->Blog->getPosts();
+    // $this->loadComponent('Blog');
+    // $this->posts = $this->Blog->getPosts();
   }
 
   public function index()
   {
-    $this->set('posts', $this->posts);
+    // Get from database
+    $posts = $this->Posts->find('all');
+    $this->set(compact('posts'));
   }
 
   public function view($id)
   {
-    // example post
-    $post = [
-      'id' => $id,
-      'title' => 'First Post',
-      'body' => 'This is the body of post ',
-      'image' => 'https://picsum.photos/id/1/200/300',
-    ];
-
-    $languages = array(
-      'English' => array('American', 'Canada', 'British'),
-      'Spanish' => array('Mexican', 'Argentina', 'Chile'),
-      'French' => array('French', 'Belgian', 'Canadian')
-    );
-
-    $this->set('posts', $this->posts);
-    $this->set('post', $post);
-    $this->set('languages', $languages);
+    $posts = $this->Posts->find('all');
+    $post = $this->Posts->get($id); 
+    $this->set(compact('posts', 'post'));
   }
 
   public function create()
   {
-    $this->set('posts', $this->posts);
+    $posts = $this->Posts->find('all');
+    $this->set(compact('posts'));
   }
 
 
