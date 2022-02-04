@@ -6,3 +6,5 @@
     <?= $post['body'] ?>
   </div>
 </div>
+
+<?= $this->Html->link('Edit Post', ['action' => 'edit', $post['id']], ['class' => 'btn btn-default']); ?>

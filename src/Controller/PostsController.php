@@ -50,7 +50,19 @@ class PostsController extends AppController
 
   public function edit($id)
   {
-    die('this is edit post id: ' . $id);
+    $posts = $this->Posts->find('all');
+    $this->set(compact('posts'));
+
+    $post = $this->Posts->get($id);
+    if ($this->request->is(['post', 'put'])) {
+      $this->Posts->patchEntity($post, $this->request->getData());
+      if ($this->Posts->save($post)) {
+        $this->Flash->success(__('Your post was updated.'));
+        return $this->redirect(['action' => 'index']);
+      }
+      $this->Flash->error(__('Unable to update your post.'));
+    }
+    $this->set('post', $post);
   }
 
   private function _logLineBreak()
