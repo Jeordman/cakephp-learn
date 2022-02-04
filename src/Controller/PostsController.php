@@ -44,7 +44,7 @@ class PostsController extends AppController
 
   public function create()
   {
-    die('<h1>Creating post</h1>');
+    $this->set('posts', $this->posts);
   }
 
 
