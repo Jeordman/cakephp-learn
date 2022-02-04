@@ -33,9 +33,26 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
   <?= $this->Html->css(['https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css']) ?>
 
+  <?= $this->Html->meta(
+    'keywords',
+    'PHP, CakePHP, frameworks'
+  ); ?>
+  <?= $this->Html->meta(
+    'description',
+    'This is an example of a meta description.'
+  ); ?>
+
   <?= $this->fetch('meta') ?>
   <?= $this->fetch('css') ?>
   <?= $this->fetch('script') ?>
+<!--  dynamic css example  -->
+  <!-- <style>
+    body{
+      <?= $this->Html->style([(
+        'background-color: #f5f5f5;'
+      )]) ?>
+    }
+  </style> -->
 </head>
 
 <body>

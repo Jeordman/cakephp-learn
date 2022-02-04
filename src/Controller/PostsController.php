@@ -28,9 +28,18 @@ class PostsController extends AppController
       'id' => $id,
       'title' => 'First Post',
       'body' => 'This is the body of post ',
+      'image' => 'https://picsum.photos/id/1/200/300',
     ];
+
+    $languages = array(
+      'English' => array('American', 'Canada', 'British'),
+      'Spanish' => array('Mexican', 'Argentina', 'Chile'),
+      'French' => array('French', 'Belgian', 'Canadian')
+    );
+
     $this->set('posts', $this->posts);
     $this->set('post', $post);
+    $this->set('languages', $languages);
   }
 
   public function create()
